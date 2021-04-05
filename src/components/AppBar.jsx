@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Pressable } from 'react-native';
+import { View, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Text from './Text';
 import Constants from 'expo-constants';
 import AppBarTab from './AppBarTab';
@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight+20,
     backgroundColor: '#24292e',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20
   },
   text: {
     color: '#FFFFFF',
     fontSize: 20,
+    paddingTop: 3,
+    paddingLeft: 10
   },
 
 });
@@ -25,13 +25,14 @@ const AppBar = () => {
     
     <Pressable onPress={() => console.log('pressed')}>
       <View style={styles.container}>
-          <Link to="/">
+        <ScrollView horizontal> 
+        <Link to="/">
             <Text style={styles.text}><AppBarTab/></Text>
           </Link>
           <Link to="/signIn">
            <Text style={styles.text}>Sign In</Text>
           </Link>
-        
+        </ScrollView>
       </View>
     </Pressable>
     );
