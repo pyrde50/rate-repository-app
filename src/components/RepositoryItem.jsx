@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import amountHook from '../hooks/amountHook';
+import theme from '../theme';
 import ImageIcon from './ImageIcon';
 import Text from './Text';
 
@@ -9,7 +10,7 @@ const RepositoryItem = (item) => {
     const stars = amountHook(final.stargazersCount);
     const forks = amountHook(final.forksCount);
     return (
-        <View>
+        <View style={styles.background}>
             <View style={styles.flexContainerRow}>
                 <ImageIcon url={final.ownerAvatarUrl}/>
                 <View style={styles.testPadding}>
@@ -63,11 +64,14 @@ const styles = StyleSheet.create({
     },
     languageContainer: {
         alignSelf: 'flex-start',
-        backgroundColor: '#0366d6'
+        backgroundColor: theme.colors.blue
     },
     testPadding: {
         paddingLeft: 10,
         paddingRight: 10,
+    },
+    background: {
+        backgroundColor: theme.colors.white
     }
   });
 
